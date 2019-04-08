@@ -101,6 +101,17 @@ char * const cu8ShortCutsBar[]={
   NULL
 };
 
+char * const cu8SendReceiveMenu[]={
+  "\r __________________________ \n",
+  "\r|                          |\n",
+  "\r|     Send Receive Menu    |\n",
+  "\r|__________________________|\n\r\n",
+  "\r-Press [1] Payload\n",
+  "\r-Press [2] Payload2\n",
+  "\rNow Running: ",
+ NULL
+};
+
 char * const cu8ContinuousTestMenu[]={ 
   "\r __________________________ \n",
   "\r|                          |\n",

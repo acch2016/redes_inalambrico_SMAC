@@ -573,6 +573,32 @@ void SerialUIStateMachine(void)
                 cstcState = gCsTcStateInit_c;
                 connState = gConnCSenseAndTCtrl_c;
             }
+            else if ('5' == gu8UartData)
+            {
+            	PrintMenu(cu8SendReceiveMenu, mAppSer);
+			}
+            else if ('S' == gu8UartData)
+            {
+            	if (mTxOperation_c == testOpMode)
+            	{
+            		LED_ToggleLed(LED_ALL);
+            		Serial_Print(mAppSer, "\n\r -Enviando\n\r\n", gAllowToBlock_d);
+            		gAppTxPacket->u8DataLength = 28;
+            		FLib_MemCpy(&(gAppTxPacket->smacPdu.smacPdu[0]), "Equipo 5, tecla presionada S", 28);
+            		gAppTxPacket->smacPdu.smacPdu[0 + 28] = '\0';
+            		Serial_Print(mAppSer, (char *) &(gAppTxPacket->smacPdu.smacPdu[0]), gAllowToBlock_d);
+            		(void) MCPSDataRequest(gAppTxPacket);
+            	}
+            	else
+            	{
+            		Serial_Print(mAppSer, "\n\r Para recibir en el Tx opcion 1 - 5 \n\r\n", gAllowToBlock_d);
+            	}
+            }
+            else if ('Boton' == gu8UartData)
+            {
+
+            }
+
 #if CT_Feature_Direct_Registers || CT_Feature_Indirect_Registers
             else if('5' == gu8UartData)
             {

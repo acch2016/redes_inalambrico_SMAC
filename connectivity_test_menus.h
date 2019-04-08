@@ -57,6 +57,7 @@ extern char * const cu8SelectTags[];
 extern char * const cu8TxTestTags[];
 extern char * const cu8RxTestTags[];
 extern char * const cu8TxModTestTags[];
+extern char * const cu8SendReceiveMenu[];
 /************************************************************************************
 *************************************************************************************
 * Module macros
